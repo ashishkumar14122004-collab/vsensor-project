@@ -1,0 +1,28 @@
+# Build artifacts
+kernel/*.o
+kernel/*.ko
+kernel/*.mod
+kernel/*.mod.c
+kernel/*.mod.o
+kernel/.*.cmd
+kernel/Module.symvers
+kernel/modules.order
+kernel/.tmp_versions/
+
+userspace/build/
+
+# Logs
+*.csv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Doxygen output
+docs/doxygen/
+
+# OS
+.DS_Store
+Thumbs.db
