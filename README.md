@@ -40,9 +40,9 @@ cd userspace && cmake -B build && cmake --build build
 | 1 | Project Introduction | ✅ Done |
 | 2 | Requirements & Development Plan | ✅ Done |
 | 3 | System Design & Architecture | ✅ Done |
-| 4 | Initial Implementation & Prototype | 🔄 In Progress |
-| 5 | Testing, Integration & Improvement | ⬜ Pending |
-| 6 | Final Implementation & Presentation | ⬜ Pending |
+| 4 | Initial Implementation & Prototype | ✅ Done |
+| 5 | Testing, Integration & Improvement | ✅ Done |
+| 6 | Final Implementation & Presentation | ✅ Done |
 
 ## Author
 Individual Project – Linux, Device Drivers, System Programming & C++
