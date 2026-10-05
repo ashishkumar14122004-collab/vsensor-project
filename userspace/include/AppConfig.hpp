@@ -21,6 +21,7 @@ struct AppConfig {
     float       temp_threshold = 75.0f;        ///< Temperature alert threshold (°C)
     float       load_threshold = 90.0f;        ///< CPU load alert threshold (%)
     bool        verbose      = false;          ///< Print raw JSON to stdout
+    bool        demo_mode    = false;          ///< Run in Demo Mode (no kernel driver)
 
     /**
      * @brief Parse command-line arguments into this config.
@@ -43,6 +44,8 @@ struct AppConfig {
                 temp_threshold = std::stof(argv[++i]);
             } else if (strcmp(argv[i], "--verbose") == 0) {
                 verbose = true;
+            } else if (strcmp(argv[i], "--demo") == 0) {
+                demo_mode = true;
             } else {
                 std::cerr << "Unknown argument: " << argv[i] << "\n";
                 printHelp(argv[0]);
@@ -62,6 +65,7 @@ private:
             << "  --interval MS     Poll interval in ms (default: 1000)\n"
             << "  --threshold TEMP  Temperature alert threshold °C (default: 75.0)\n"
             << "  --verbose         Print raw JSON to stdout\n"
+            << "  --demo            Run in Demo Mode (no kernel driver required)\n"
             << "  --help            Show this help message\n";
     }
 };

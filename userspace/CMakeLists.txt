@@ -21,6 +21,7 @@ find_package(Curses  REQUIRED)
 
 add_executable(vsensor_monitor
     src/main.cpp
+    src/demo_main.cpp
 )
 
 target_include_directories(vsensor_monitor PRIVATE
@@ -49,6 +50,7 @@ if(BUILD_TESTS)
             ../tests/test_sensor_parser.cpp
             ../tests/test_stats_engine.cpp
             ../tests/test_alert_manager.cpp
+            ../tests/test_demo_reader.cpp
         )
         target_include_directories(vsensor_tests PRIVATE
             include

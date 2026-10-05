@@ -10,6 +10,8 @@
  *   - AlertManager
  *   - Dashboard    (ncurses UI, runs on main thread)
  *
+ * Pass --demo to run in Demo Mode (no kernel driver required).
+ *
  * The main thread drives the UI refresh loop at ~10 Hz, while the
  * DeviceReader thread polls /dev/vsensor at the configured interval.
  */
@@ -28,6 +30,9 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+
+/* Declared in demo_main.cpp */
+int run_demo(int interval_ms);
 
 /* ------------------------------------------------------------------ */
 /*  Global shutdown flag (set by SIGINT handler)                       */
@@ -49,6 +54,12 @@ int main(int argc, char* argv[])
     AppConfig config;
     if (!config.parse(argc, argv))
         return 0;
+
+    /* ── Demo Mode: no kernel driver required ─────────────────────── */
+    if (config.demo_mode) {
+        return run_demo(config.interval_ms);
+    }
+    /* ─────────────────────────────────────────────────────────────── */
 
     /* Install signal handler */
     std::signal(SIGINT,  onSignal);
